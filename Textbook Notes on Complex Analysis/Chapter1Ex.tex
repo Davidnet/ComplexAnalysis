@@ -1,0 +1,107 @@
+\subsection{Exercises}
+\subsubsection{1.}
+Find the values of:
+\begin{align*}
+(1 + 2i)^{3} &= \binom{3}{0}1^3 + \binom{3}{1}1^2 2i + \binom{3}{2}(2i)^2 + \binom{3}{3} (2i)^3 \\
+& = 1 + 3 \cdot 2i + 3 \cdot 2^2 i^2 + 1 \cdot 2^3 i^3 \\
+& = 1 + 6i - 12 - 8i \\
+& = -11 - 2i 
+\end{align*}
+\rule{\textwidth}{1pt}
+\begin{align*}
+\frac{5}{-3 + 4i} &= \frac{5}{-3 + 4i} \frac{-3-4i}{-3-4i} \\
+ &= \frac{-15 - 20i}{(-3)^{2} -(4i)^{2}} \\
+ &= \frac{5 (-3 - 4i)}{5 \cdot 5} \\
+ &= \frac{-3-4i}{5} 
+\end{align*}
+\rule{\textwidth}{1pt}
+\begin{align*}
+(\frac{2+i}{3-2i})^{2} &= (\frac{2+i}{3-2i} \cdot \frac{3 + 2i}{3 +2i})^{2} \\
+ &= (\frac{4 + 7i}{9 + 4 })^2 \\
+ &= \frac{56i - 33}{169} 
+\end{align*}
+\rule{\textwidth}{1pt}
+\begin{align*}
+(1+i)^n + (1-i)^n &= \sqrt{2}^n e^{\frac{\pi}{4}in} + \sqrt{2}^n e^{-\frac{\pi}{4}in} \\
+ & = \sqrt{2}^n(\cos(\frac{\pi}{4}n) + i \sin(\frac{\pi}{4}n) + \cos(-\frac{\pi}{4}n) + i \sin(-\frac{\pi}{4}n)) \\
+ & = 2^{\frac{n}{2} + 1} \cos(n \frac{\pi}{4})
+\end{align*}
+\subsubsection{2.}
+If $ z = x + iy $, find the real and imaginary parts of:
+Observe that:
+\begin{align*}
+	z^4 &= (x + iy)^4 \\
+	 &= \binom{4}{0}x^4 + \binom{4}{1}x^3iy + \binom{4}{2} x^2(iy)^2 + \binom{4}{3}x(iy)^3 + \binom{4}{4} (iy)^4 \\
+	 &= x^4 + 4 x^3iy + (-6) x^2 y^2 + 4 xy^3(-i) + y^4 \\
+	 &= x^4 -6x^2y^2 + y^4 + i(4x^3y - 4xy^3)
+\end{align*}
+And we explicitly see that:
+\begin{align*}
+\re{z^4} = x^4 -6x^2y^2 + y^4 \quad \im{z^4} = (4x^3y - 4xy^3)
+\end{align*}
+\rule{\textwidth}{1pt}
+We recall the form of $ \frac{1}{z} $ is:
+\begin{align*}
+\frac{1}{z} = \frac{ x - i y}{x^2 + y^2}
+\end{align*}
+And we explicitly see that:
+\begin{align*}
+\re{ \frac{1}{z} } = \frac{ x }{x^2 + y^2} \quad \im{\frac{1}{z}} = \frac{  - y}{x^2 + y^2}
+\end{align*}
+\rule{\textwidth}{1pt}
+Let us take note that
+\begin{align*}
+\frac{z-1}{z+1} &= \frac{(x -1) + iy}{(x + 1) + iy} \\
+&= \frac{((x-1)+iy)((x+1)-iy)}{(x+1)^2 + y^2} \\
+&= \frac{(x^2 - 1) + y^2}{(x+1)^2 + y^2} + i\frac{(x+1)y - (x-1)y}{(x+1)^2 + y^2} \\
+&= \frac{(x^2 - 1) + y^2}{(x+1)^2 + y^2} + i\frac{2y}{(x+1)^2 + y^2}
+\end{align*}
+And we explicitly see that:
+\begin{align*}
+\re{ \frac{z-1}{z+1} } &= \frac{(x^2 - 1) + y^2}{(x+1)^2 + y^2} \\ 
+\im{ \frac{z-1}{z+1} } &= \frac{(x+1)y - (x-1)y}{(x+1)^2 + y^2}
+\end{align*}
+\rule{\textwidth}{1pt}
+\begin{align*}
+\frac{1}{z^2} &= \frac{1}{(x + iy)^2} \\
+ &= \frac{1}{(x^2 - y^2) + 2xyi} \\
+ &= \frac{(x^2 - y^2 ) -2xyi}{(x^2 - y^2)^2 - 4x^2y^2}
+\end{align*}
+So that, we observe:
+\begin{align*}
+\re{ \frac{1}{z^2} } &= \frac{(x^2 - y^2 )}{(x^2 - y^2)^2 - 4x^2y^2} \\ 
+\im{ \frac{1}{z^2} } &= \frac{-2xy}{(x^2 - y^2)^2 - 4x^2y^2}
+\end{align*}
+\subsubsection{3.}
+Show that:
+\begin{align*}
+(\frac{-1 \pm i \sqrt{3}}{2})^3 = 1
+\end{align*}
+First, let us observe that:
+\begin{align*}
+(\frac{-1 \pm i \sqrt{3}}{2})^3 &= \left( \frac{ (2 e^{\pm \frac{\pi}{3}i})}{2} \right)^3 \\
+ &= e^{ \pm \pi i} \\
+ &= \cos(\pi) + i \sin(\pm \pi) \\
+ &= \cos(\pi) \\
+ &= 1
+\end{align*}
+\rule{\textwidth}{1pt}
+Consider:
+\begin{align*}
+\frac{\pm 1 \pm i \sqrt{3}}{2} &= e^{\pm \frac{\pi}{3}} \\
+&\text{or} \quad e^{\pm \frac{4 \pi}{3}}
+\end{align*}
+We consider then two cases:
+\begin{align*}
+	\left( \frac{\pm 1 \pm i \sqrt{3}}{2} \right)^6  &= \cos( \pm \frac{6 \pi}{3} ) + i \sin( \pm \frac{6 \pi}{3}) \\
+	&= \cos(\pm 2 \pi) + i \sin( \pm 2 \pi) \\
+	&= \cos( 2 \pi) \\
+	&= 1
+\end{align*}
+Finally,
+\begin{align*}
+\left( \frac{ \pm 1 \pm i \sqrt{3} }{2} \right) &= \cos( \pm \frac{24 \pi}{3}) + i \sin( \pm \frac{24 \pi}{3}) \\
+&= \cos(8 \pi) + i \sin(8 \pi) \\
+&= 1
+\end{align*}
+Which proves the equality.

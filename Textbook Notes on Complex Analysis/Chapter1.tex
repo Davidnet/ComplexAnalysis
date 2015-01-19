@@ -1,0 +1,111 @@
+\chapter{Complex Numbers}
+\section{The Algebra of Complex Numbers}\label{sec:the-algebra-of-complex-numbers}
+We define the imaginary unit as $ i^2 = -1 $, and given two real numbers $ \alpha$ and $ \beta$ we can get the following complex number $ \alpha + i \beta$,  we define the \textbf{real} part of a complex number as: $ \re{ z } = \alpha $, and the \textbf{imaginary} part of a complex number as $ \im{z} = \beta $. If $ \alpha = 0$ the number is said to be \emph{purely imaginary}; if $ \beta = 0$ it is \emph{real}. Observe then, that zero is the only number which is at once real and purely imaginary. Two complex numbers are equal if and only if have the same real part and the same imaginary part.
+We define addition and multiplication as follows:
+ 
+\begin{align} \label{Addition}
+(\alpha + i \beta) + ( \gamma + i \delta) = (\alpha + \gamma) + i(\beta + \gamma) 
+\end{align}
+
+and
+
+\begin{align} \label{multiplication}
+(\alpha + i \beta) ( \gamma + i \delta) = ( \alpha \gamma - \beta \delta) + i ( \alpha \delta + \beta \gamma)
+\end{align}
+
+Observe that for \eqref{multiplication} we have used the property that $ i ^2 = -1 $
+
+It is less obvious if the operation of division is possible:
+
+\begin{thm}
+	\textbf{Existence of Division} 
+	$\frac{ \cexo }{ \cext }$ is a complex number, provided that $ \gamma + i \delta \neq 0 $
+\end{thm}
+\begin{proof}
+	Let us denote $ x + i $ the quotient result from the division, for that to happen we must have:
+	\begin{align*}
+	\cexo = (\cext)(x + iy) 
+	\end{align*}
+	By \eqref{multiplication} this is equivalent to:
+	\begin{align*}
+	\cexo = (\gamma x - \delta y ) + i ( \delta x + \gamma y)
+	\end{align*}
+	And thus, we obtain the equations:
+	\begin{align*}
+	\alpha = \gamma x - \delta y \\
+	\beta =  \delta x + \gamma y
+	\end{align*}
+	Since this a $ 2 \times 2$ system of equation, it has the unique solution:
+	\begin{align*}
+	x = \frac{\alpha \gamma  + \beta \delta}{\gamma^2 + \delta^2} \\
+	y = \frac{ \beta \gamma - \alpha \delta}{\gamma^2 + \delta^2}
+	\end{align*}
+	Provided $ \gamma^2 + \delta^2 $ is not zero.
+	We have thus the result:
+	\begin{align*}
+	\frac{ \cexo }{ \cext } =  \frac{\alpha \gamma  + \beta \delta}{\gamma^2 + \delta^2} + i \frac{ \beta \gamma - \alpha \delta}{\gamma^2 + \delta^2} 
+	\end{align*}
+	Which as for inspection, can be seen as a complex number.
+\end{proof}
+Once proved that the quotient is a complex number, it is rather cumbersome to compute the quotient in the previous manner, so that we use the following method (Once the existence of the operation is proven):
+\begin{align*}
+	\frac{\cexo }{\cext  } = \frac{(\cexo )(\cextc )}{(\cext )(\cextc )} = \frac{(\alpha \gamma + \beta) + i(\beta \gamma - \alpha \delta)}{\gamma^2 + \delta^2}
+\end{align*} 
+Observe then that the \textbf{reciprocal} of a complex number is:
+\begin{align*}
+\frac{1}{ \alpha + i \beta} = \frac{ \alpha - i \beta}{\alpha^2 + \beta^2}
+\end{align*}
+We also take the observation that $ i^n $ can only have the four possible values: $1, i, -1, -i$. They correspond to values of $n$ which divided by $4$ leave the remainders $ 0,1,2,3 $.
+
+\begin{mdframed}
+	Calculate $i^{-18}$.
+	
+	\textit{Solution}: Observe that:
+	\begin{align*}
+	i^{-18} = (i^{18})^{-1}
+	\end{align*}
+	and then $ x \equiv 18 \mod{4} $ is $ x \equiv 2 \mod{4} $ so that 
+	\[ i^{18} = -1 \]
+	and finally we have:
+	\[ i^{-18} = (-1)^{-1} = -1 \]
+	Which is the correct answer.
+	
+\end{mdframed}
+\input{Chapter1Ex}
+\section{Square Roots}
+The main idea is that we are looking for a number $ x + iy$ such that
+\[ 
+(x + iy)^{2} = \cexo 
+ \]
+ Evidently this is same as:
+ \begin{align*}
+ x^2 - y^2 = \alpha \\
+ 2xy = \beta
+ \end{align*}
+Let us take note that
+\[ 
+(x^{2}+y^{2})^{2} = (x^2 + y^2)^2 + 4x^2y^2
+\]
+and combining this information along with the previous relationships:
+\[ (x^{2}+y^{2})^{2} = \alpha^2 + \beta^2 \]
+Hence we should have:
+\[ x^2 + y^2 = \sqrt{ \alpha^2 + \beta^2 } \]
+and using again the two equalities stated above:
+\begin{align*}
+x^2 = \frac{1}{2}( \alpha + \sqrt{\alpha^2 + \beta^2}) \\
+y^2 = \frac{1}{2}( -\alpha + \sqrt{ \alpha^2 + \beta^2}  )
+\end{align*}
+Take note, that as much, these two quantities are as much, zero or positive (take extreme values of $\beta$ )
+A word of caution the previous equation should be used with caution, since we must be careful to select $x$ and $y$ so that their product has the sign of $\beta$.
+In general, but much more cumbersome, a general solution is:
+ \begin{align*}
+  \sqrt{\cexo }= \pm \left( \sqrt{ \frac{ \alpha + \sqrt{\alpha^2 + \beta^2} }{2}} + i \frac{\beta}{\left| \beta \right|} \sqrt{ \frac{ -\alpha + \sqrt{\alpha^2 + \beta^2}}{2}} \right)
+ \end{align*}
+ Provided that $ \beta \neq 0 $. As from elementary algebra, we see that for $ \beta = 0$ the values are $ \pm \sqrt{\alpha} $ if $ \alpha \geq 0$, $\pm i \sqrt{-\alpha} $ if $ \alpha < 0$. It is understood that all square rots of positive numbers are taken with the positive sign.
+ Observe then that the square root of any complex number exist.
+ 
+ \include{Chapter1ExSquareR}
+ 
+
+
+
