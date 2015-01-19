@@ -1,2 +1,122 @@
-\section{Introduction}
-We begin with an introduction to complex modular forms
+\section{Complex Numbers}
+We want to solve a quadratic equation:
+\[ ax^2 + bx + c = 0 \]
+so we first calculate the discriminant:
+\[ D =  b^2 - 4ac \]
+it is called that, because it differentiate solution types. We then compute:
+\[ r_{\pm} \frac{-b \pm \sqrt{D} }{2a}  \]
+In $ R $ squares are positives,  but this poses a problem when $D < 0$. Meanwhile, let us observe that when $ D > 0 $ we get two solutions, and when we get $ D = 0$ there is only one solution. So the main question is what to do when $ D < 0$. Without loss of generality we can assume that $ a=1$
+\begin{align*}
+r_+ = -\frac{b}{2} + \sqrt{2} \\
+r_- = -\frac{b}{2} - \sqrt{2}
+\end{align*}  
+the reason is that we want to be able write
+\[ p(x)= (x -r_+)(x - r_-)\]
+expanding the product above
+\[ p(x) = x^2 - (r_+ + r_-)x + r_=r_-\]
+so that $D$ can be written as:
+\[ D = \textrm{Sign}(D)|D| \]
+Observe that we can take the definition of sign as above. But then, this give a suspect idea that there can exist a \textbf{not real number} that:
+\[ \pm (\sqrt{-1})^2 = -1 \]
+which is also a solution of the following equation:
+\[ x^2 + 1 = 0 \]
+This then motivate the following concept, does arithmetic follows natural with the inclusion:
+\[ z = a + b \sqrt{-1} \]
+Observe the symmetry on choosing $ \sqrt{-1} $ or $ -\sqrt{-1} $. Which again motivates
+\[ \bar{z} = a - b \sqrt{-1} \]
+As in the textbook $ i^n$ maps to $1,i,-1,-i$ with the trick $ \mod{4 }$ 
+Let us define then that addition comes naturally:
+\[ (a+b\sqrt{-1}) + (c+d\sqrt{-1})= (a+d) + (b + d)\sqrt{-1}\]
+Multiplication is a little bit tricky:
+\[ (a + b\sqrt{-1})\times (c+d\sqrt{-1})  = (ac -bd) + (ad+bc)\sqrt{-1}\] 
+which comes natural by considering $ (\sqrt{-1})^2 $.
+Observe that the reals are embedded as:
+\[  a + 0\sqrt{-1} \] 
+The operation of taking $ z \rightarrow \bar{z} $ is called \emph{Complex conjugation}, observe that it complies $ \bar{z} \rightarrow z $, which will allow us to extract $ a,b$ as:
+\begin{align*}
+\frac{1}{2}(z + \bar{z}) := \textrm{Re}(z) = a
+\end{align*}
+and also
+\begin{align*}
+\frac{1}{2\sqrt{-1}}(z - \bar{z}) := \textrm{Im}(z) = b
+\end{align*}
+our definition above can be then replaced by:
+\[ z = \textrm{Re}(z) + \textrm{Im}(z)\sqrt{-1} \]
+The preceding equation proposes a big problem, since we have found another "strange" number:
+\[ \frac{1}{\sqrt{-1}} = x \]
+ or equivalently,
+ \[ \sqrt{-1}x= 1 \]
+ from which it can be solved by inspecting the table of exponentiation and we find:
+ \[ x = - \sqrt{-1} \]
+ In literature we often define that $ \sqrt{-1} = i$
+ A big question is that if $ z \neq 0 $, then there exist $ \omega$ such that $ w \cdot z = 1 $, the answer is positive and it even has a stronger statement: with complex numbers we can solve any polynomial equation.
+ \begin{mdframed}
+ 	\begin{align*}
+ 	z = a + bi \\
+ 	w = x + iy
+ 	\end{align*}
+ 	and we are looking $ z \cdot w = 1$
+ 	so we get the system of equations
+ 	\begin{align*}
+ 	ax - by =1 \\
+ 	bx + ay = 0
+ 	\end{align*}
+ 	and we can get information about the solution, via the determinant $ \textrm{det } = a^2 + b ^2 $, and this is only zero if only if $ a = 0 $ and $ b=0$. Solution can be found for any method
+ \end{mdframed}
+ Observe that if we have a complex number and its conjugate, the following relation holds:
+ \begin{align*}
+ z \cdot \bar{z} = a^2 + b^2 \\
+ \frac{1}{z} = \frac{1}{a^2 + b^2} \cdot \bar{z}
+ \end{align*}
+ \begin{mdframed}
+ 	\begin{align*}
+ 	\frac{1}{2+3i}= \frac{1}{13}(2-3i)
+ 	\end{align*}
+ 	Observe that this recall Cramer's rule, since it has the form of$ \frac{1}{det} $
+ \end{mdframed}
+ The following problem that we are facing is the existence of:
+ \[ z = a+bi \quad \exists w \quad w^2 = z \]
+ if we let $ w = x + iy$, and $ w^2 = (x^2-y^2) + i (2xy)$, we get the following system of equations.
+ \begin{align*}
+ a = x^2 - y^2 \\
+ b = 2xy
+ \end{align*}
+ Observe that $0$ has a unique root.
+ We denote the set of all complex numbers with $ \mathbb{C}$ and observe that we can take bijection beetwen C and $R^2$
+ \begin{align*}
+ \mathbb{R} \leftrightarrow \mathbb{C} \\
+ z \longrightarrow ( Re(z),Im(z)) \\
+ a + ib \longleftarrow (a,b)
+ \end{align*}
+ Observe then that $ \mathbb{C} $ is a vector space over $ \mathbb{R } $. Basis: $1,i$. Now observe that we can take a geometric interpretation, given this two bijections, to the multiplication of a complex numbers.
+ Side note: A linear map is a map that plays nice with arithmetic.
+ an important characterization of linear maps, is that:
+ \[ f(a) = a\cdot f(1) \]
+ and also
+ \begin{align*}
+ f\left( \binom{a}{b} \right) = a \binom{1}{0} + b \binom{0}{1}
+ \end{align*}
+ and it can be easy characterized via:
+ \begin{align*}
+ \binom{v_{11} \quad v_{22}}{v_{21} \quad v_{22}}
+ \end{align*}
+ Now consider the following map:
+\begin{align*}
+\mathbb{C} \rightarrow \mathbb{C} \\
+w \rightarrowtail zw
+\end{align*}
+where $z = a + ib$
+Again observe that we are only taking care of the values on the basis.
+
+\textbf{Example} Suppose $A^2 =  -I$, and $ \textrm{det} > 0 $, then there is an invertible matrix B such that $ A = BJB^{-1}$.
+Returning to our previous point, we see that complex numbers are embedded nicely on $ 2 \times 2 $ matrices with real coefficients. So that the span $1$ and  $j$ is a 4 dimensional vector space over R. Finally, we conclude that multiplication on $\mathbb{C} $ is a matrix multiplication.
+
+When we look a close view on $ \mathbb{R}^2 $ along with the normal dot product, we have the \textbf{Cauchy-Schwarz Inequality}:
+Let us then define:
+\begin{align*}
+|\vec{a}|^2 = \vec{a}\cdot \vec{a}
+\end{align*} 
+and proof is left to the reader:
+\begin{align*}
+|\vec{a}\cdot \vec{b}| \leq |\vec{a}||\vec{b}|
+\end{align*}
