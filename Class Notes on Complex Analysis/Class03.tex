@@ -1,0 +1,138 @@
+\section{Class 03}
+\textbf{Notation }
+\[ z,w \in \CC 	\]
+\[ x,y in \RR \quad  \CC \]
+\[ t \in \RR \]
+For this section all functions are well defined that is univalued and all functions are defined on an open set.
+\begin{define}
+$U$ is an open set if:
+\[ \forall x \in U \exists \epsilon > 0 \textrm{ s.t } \abs{y-x}  < \epsilon \implies y \in U \]
+\end{define}
+Observe that for Ahlfors $ \sqrt{x} $ is not a function.
+\begin{define}
+	The function $f(x)$ "has a limit" $A$ as$ x \rightarrow a$ we write:
+	\[ \lim_{x \rightarrow a} f(x) = A  \]
+	If $ \forall \epsilon > 0 \exists \delta_{\epsilon} > 0$ such that $ \abs{x - a} < \delta_\epsilon \implies \abs{ f(x) - A} < \epsilon $
+\end{define}
+There are variance if $A$ is an infinite the definitions will change accordingly.
+\begin{lem}
+	$f(x) = \sin(x)$ Let show that $ \lim_{x \rightarrow 0 } f(x) = 0$
+\end{lem}
+\begin{proof}
+	Assuming given $ \epsilon > 0 $, need to find $ \delta_\epsilon > 0 $ s.t $ x \in (-\delta_\epsilon, \delta_\epsilon) $ imples $\sin(x) \in (-\epsilon,\epsilon) $. 
+	
+	For any $ \epsilon > 0 $ take $ \delta_\epsilon := \epsilon $ 
+\end{proof}
+\begin{define}
+	A function $f(x)$ is continuous at $ x =a $ if:
+	\[ \lim_{x \rightarrow a} f(x) = f(a) \]
+\end{define}
+
+\textbf{Example }
+$ \sin(x) $ is continuous at $ x = 0 $
+
+\begin{prop}
+	Let $ \function{f}{\CC}{\CC} $, $ a, A  \in \CC$, then:
+	\begin{align*}
+	\lim_{ \goesto{x}{a}} f(x) = A \\
+	\lim\limits_{\goesto{x}{a}}  \bar{f(x)} = \bar{A} \\
+	\lim\limits_{\goesto{x}{a}} \re{f(x)}  = \re{A} \\
+	\lim\limits_{\goesto{x}{a}} \im{f(x)} = \im{A} 
+	\end{align*}
+\end{prop}
+A continuous function $f(x) $ is a function that is continuous at any $x$ for which it is defined.
+So that for example $ \frac{1}{x} $ is continuous.
+\begin{define}
+	\[ f'(a)  := \lim\limits_{\goesto{x}{a}} \frac{f(x) - f(a)}{x-a} \], the difference quotient.
+	$f(x) $ is differentiable at $ x =a $ if $ f'(a) $ exists. 
+	
+	If so,
+	\[ f(x) \approx f(a) + (x-a)f'(a) + O((x-a)) \]
+	Observe that the first two terms are the equation of the tangent.
+	Observe that:
+	\[ \frac{\epsilon(x-1)}{x-a} \rightarrow 0 \qt{ as } \goesto{x}{0}\]
+\end{define}
+Observe that if $\function{f}{\RR^2}{\RR} $, let us take $ (a,b) \in \RR^2 $, if $f$ is differentiable at $ (a,b) \in\RR^2$ then for $(x,y)$ near $(a,b) $, we have:
+\[ f(x,y) = f(a,b)) + \frac{\partial f}{\partial x}(a,b) (x-a) + \frac{ \partial f}{\partial y}(a,b) (y-b) + o(\abs{\abs{(x,y) - (a,b)}})\]
+
+Let $\function{f}{\CC}{\CC}$ is $\CC$ is differentiable at $ z =a$ if:
+\[ f'(z) := \lim\limits_{\goesto{z}{a}} \frac{f(z) - f(a)}{z-a} \]
+exists.
+So observe:
+\[ f(z) = f(a) + f'(z)(z-a) + o() \]
+\begin{prop}
+	Let us show that $f(z) = z^n$ is Complex differentiable for $ z =a $, for all $ a\in \CC$
+\end{prop}
+\begin{proof}
+	\[ f'(a) = \lim\limits_{\goesto{z}{a}} \frac{f(z) - f(a)}{z-a} \]
+	let $ \xi = z -a $
+	so that
+	\[ f'(a) = \lim\limits_{ \xi \rightarrow 0}  \frac{(a + \xi)^n - a^n}{\xi}\]
+	and expanding using Newton binomial theorem. (and cancelling $ \xi \neq 0 $)
+	\[ f'(a) = \lim\limits_{\xi \rightarrow 0} (n a^{n-1} + \qt{ things that have xi}) \]
+	so that :
+	\[ f'(a) = na^{n-1} \]
+	implies 
+	\[ f'(z) = n z^{n-1} \]
+\end{proof}
+Now for a pathological example. Let us take $ f(z) = \re{z} $ is not complex differentiable at any point. (Also imaginary part of $Z$ is not complex differentiable)
+\[ f'(a) = \lim\limits_{\goesto{z}{a}} \frac{f(z) - f(a)}{z-a}  \]
+again using $ \xi = z-a$
+\[ f'(a) = \lim\limits_{ \goesto{\xi }{0}} \frac{\re{a + \xi} - \re{a}}{\xi} \]
+so that:
+\[ \lim\limits_{\xi \rightarrow 0} \frac{\re{\xi}}{\xi} \]
+Observe that if $ \xi = t \in \RR $ then 
+\[ \re{\xi} / \xi = \frac{t}{t}  = 1\]
+Now, observe that if $ \xi = it \in \RR$ and 
+\[ \frac{\re{\xi}}{\xi} = \frac{0}{t}= 0\]
+\begin{define}
+	A Complex function $f(z)$ and $\function{f}{\CC}{\CC}$ is \textbf{analytic } or(holomorphic) at $z$ if $ f'(z) $ exists (the complex derivative)
+\end{define}
+\begin{thm}
+	\textbf{Main thm} $f(z) $ is analytic at $ z =a $ if and only if 
+	\[ f(z) = \sum_{n=0}^{\inf} c_n (z-a)^n \qt{ for } \abs{z-a} < \epsilon\]
+\end{thm}
+\subsection*{Cauchy-Riemann equations}
+Let us take $ \function{f}{\CC}{\CC} $ and rewritten as $ f(z= x + iy) = u(x,y) + i v(x,y) $ $ u,v \in RR$  and assume $f'(z)$ exist as a complex derivative. Equivalently,
+\[ f'(z) = \lim\limits_{\eta \rightarrow 0}  \frac{f(z + \eta) - f(z)}{\eta} \quad \eta \in \CC\]
+then the above is equivalently, to the two reformulations:
+\[ \lim_{\eta \in \RR = h \rightarrow 0} \frac{f(z+h) - f(h)}{h} \]
+and has to be equal to:
+\[ \lim\limits_{\eta \in i\RR, \eta = ik \rightarrow 0, \quad k \in \RR}  \frac{f(z+ik) - f(z)}{ik}\]
+so that with $u, v$
+\[ \lim\limits_{h \rightarrow 0} \frac{u(x + h,y) + iv(x+h,y) - u(x,y)-iv(x,y)}{h} = \frac{\partial u}{\partial x}(x,y) + i \frac{\partial v}{\partial x} (x,y)\]
+ and for the second part:
+ \[ \lim\limits_{k \rightarrow 0 } \frac{u(x, y+k) + iv(x,y+k) - u(x,y) - iv(x,y+k)}{ik} = \frac{\partial v}{\partial y}(x,y) - i \frac{\partial u}{\partial y}(x,y)\]
+ and since them are the manifestation if the same limit, we have the equation
+ \begin{align*}
+ \frac{ \partial u}{\partial x} = \frac{ \partial v}{\partial y} \\
+ \frac{\partial v}{\partial x} = - \frac{ \partial u}{\partial y}
+ \end{align*}
+ For remembering, check that the function $ f(z) = z$ is complex differentiable. 
+ If we are calculating the derivative (computing stuff):
+ \[ f'(z) = \frac{\partial u}{\partial x} + i \frac{\partial v}{\partial x} = \frac{\partial f}{\partial x} \]
+ now let us observe:
+ \[ \abs{f'(z)}^2 = \lrp{\frac{\partial u}{\partial x}}^2 + \lrp{ \frac{\partial v}{\partial y}}^2 \]
+ and this is the Jacobian. 
+ \[ \lrp{\frac{\partial u}{\partial x}} \lrp{\frac{\partial v}{\partial y}} - \lrp{ \frac{\partial u}{\partial y}} \lrp{\frac{\partial v}{\partial x}} \]
+ 
+ \begin{align*}
+ \begin{bmatrix}
+ \frac{\partial u}{\partial x} & \frac{\partial v}{\partial x} \\
+ \frac{\partial u}{\partial y} & \frac{\partial v}{\partial y}
+ \end{bmatrix}
+ \end{align*}
+ Which is the Jacobian.
+   
+ Assume $u,v$ have continuous 2nd partial derivatives, so that the mix exist are equal 
+ \[ \frac{ \partial^2 u}{\partial x \partial y} = \frac{\partial^2 u}{\partial y \partial x} \]
+ then $u.v$ are harmoni, that is:
+ \begin{align*}
+ \Delta u = 0 \\
+ \Delta v = 0
+ \end{align*}
+ where $\Delta$ is the laplace operator:
+ \[ \Delta= \frac{\partial^2 }{\partial x^2} + \frac{\partial^2}{\partial y^2} \]
+ and that solves:
+ \[ \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y} = 0 \]
+ 
