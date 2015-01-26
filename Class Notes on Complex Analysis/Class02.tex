@@ -1,0 +1,79 @@
+\section{Remarks from last time}
+
+
+\begin{align*}
+\CC &\rightarrow \textrm{Mat}_{2 \times 2} (\RR) \\
+A+IB &\rightarrow a + bJ \\
+J^2 &= \binom{0 \quad -1}{1 \quad 0}
+\end{align*}
+so that:
+\begin{align*}
+Z = a+ ib \leftrightarrow \binom{a \quad -b}{b \quad a}
+\end{align*}
+Let us observe that in $ \RR2 $ we have the dot product for which:
+\[ \vec{a}\cdot \vec{a} \geq 0 \]
+it is good as concept of measure of distance.
+Let us observe the analogue on complex numbers:
+\[ z = a+ib \]
+\[ w = c+id \implies \bar{w} = c-id \]
+so that 
+\[ z\bar{w} = (ac + bd) + (bc -ad) \]
+for which the left parenthesis of the RHS is real and the other imaginary. Observe also:
+\[  \abs{z}^2 = a^2 + b^2 \geq 0 \]
+and if $z \neq 0 $ we define:
+\[ z^"{-1} = \frac{1}{\abs{z}} \bar{z} \]
+
+\section*{Cauchy-Schawrz}
+Suppose we know the properties of the dot product:
+\[ \abs{\vec{a} \cdot \vec{b}} \leq \abs{\vec{a}}\abs{\vec{b}}  \]
+
+\textbf{Example}
+
+In $\RR^n $:
+\[ <a_1, \ldots, a_n> \cdot < b_1, \ldots b_n \]
+\[  = \sum_{n = 1}^{n} a_i b_i \]
+\[  \leq (\sum a_i)^{/frac{1}{2}} (\sum b_j)^{\frac{1}{2}} \]
+
+\textbf{Example}
+The functions that are square integrables on $I = [0,1] $
+for which we have:
+\[ \abs{ \int_{0}^{1} f g dx} \leq \abs{\int f dx}  \abs{ \int g dx}\]
+
+\textbf{Proof}
+Let recall that for parameterizing the line in beetwen $ \vec{a} $ and $ \vec{ b } $ we could use the convex  combination.
+\[ t \vec{b} + (1-t) \vec{a} \quad 0 \leq t \leq 1 \]
+\[  \abs{t \vec{b} + (1-t) \vec{a}}^2 > 0 \]
+We expand and we get:
+.... It is the same trick of consider a quadratic without root $ a + \lambda b$.
+Geometrical Consideration:For two independent vectors, the line that pass through them do not pass on the origin. 
+\section{C-S Consequences}
+\textbf{The triangle inequality}
+\[  \abs{\vec{a + \vec{b}}} \leq \abs{\vec{a}} + \abs{ \vec{b}}  \]
+the proof is given by considering the expansion of:
+\[  \abs{ \vec{a} + \vec{b}} \]
+and the inequality: (Check!)
+
+\textbf{Definition of Angles }
+\[ \cos(\theta) := \frac{\abs{\vec{a} \cdot \vec{b}}}{\abs{\vec{a}} \abs{ \vec{b}}}\]
+
+\section{Special $ (2 \times 2 ) $ matrices}
+
+\textbf{Scalar}: 
+\[ \binom{ \lambda \quad 0}{0 \quad \lambda } = \lambda I \]
+\textbf{A - $ 2 x 2 matricies$}
+A is orthogonal iff
+\[ \vec{a} \cdot \vec{b} = (A \vec{a}) \cdot (A \vec{b}) \] iff
+Preserves lengths, and angles.
+
+Consider the matrix of rotation $ \theta $, and consider two rotations  $ \alpha $ y $ \beta $, and the sum of these two, it will given then the following matrix.
+Observe that these shows explicitly the formulas of sum and sine cosine.
+
+\textbf{Consider the following computation} $ \cos(15 \alpha) $
+
+\begin{define}
+	\textbf{Conformal} preserves angles ( but not conserve lengths)
+\end{define}
+
+Remark: Orthogonal transformations preserve angles, and scalar conserve angles.
+Conformal are complex numbers. via matrices. 
+\[ z = \abs{z} \textrdl \]
