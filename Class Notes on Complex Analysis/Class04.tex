@@ -1,0 +1,107 @@
+Observe that last time we conclude that:
+\begin{thm}
+	if $ f'(z) $ exists then it satisifies the Cauchy Riemman Equations, and if a function $ f(x,y) = u(x,y) + iv(x,y) $, $u,v$ has continous first order partial derivatives and Cuachy-Rieman equations holds then $f'(z)$ exists. 
+\end{thm}
+
+\begin{proof}
+	Let $z = x + iy$ and and increment $ delta z = h +ik$, so that $ u (z + \delta z) = u (x + h , x+ h) = u(x,y) + \frac{\partial u}{\partial x} (x,y)k + \epsilon_1$, so that $ \frac{\epsilon_{1,2}}{h+ik} \rightarrow 0 $. As also, $ v(x+ \delta z) = v(x,y) + \frac{\partial u}{\partial v}...$ same as above. 
+	So that we observe that
+\end{proof}
+We take note that the above proof clearly demonstrate that no matter which curve we use to approach to $0$ the limit is going to be the same.
+\begin{thm}
+	If $f(z) = u(x,y) + i v(x,y) $ is analytic [and $u,v$ has contious second order derivatives], then $ \delta u = 0 $ (the Laplacian) $ \delta v = 0 $
+\end{thm} 
+\begin{proof}
+	let us observe $ \frac{ \partial^2 u}{\partial x^2} + \frac{ \partial^2 u}{\partial y^2} = \frac{\partial}{\partial x} \lrp{ \frac{\partial v}{\partial y}}  + \frac{\partial }{\partial y} \lrp{ \frac{\partial v}{\partial x}} = 0. $
+\end{proof}
+
+\begin{define}
+	Two harmonics functions $ u(x,y), v(x,y) $ are said to be harmonic conjugate if $ f(x,y) = u(x,y) + iv(x,y) $ is an analytic function.
+\end{define}
+
+Exercise: Find an harmonic conjugate to $u(x,y) = x^2 - y^2$
+
+Recall that we can use the Cauchy-Rieman Equations so that:
+we find:
+\begin{align*}
+\frac{\partial v}{\partial y} = 2x \\
+\frac{\partial v}{\partial x} = 2y
+\end{align*}
+Solve then we have:
+\[ f(x,y) = x^2 - y^2 + 2xiy \]
+that obvious is that:
+\[ f(z) = z^2  \]
+For the nexxt section we use the following notation $ f'(z) $ is the complex derivative if it exists, it can be written $ \frac{df}{dz} $ and we introduce another different thing: $ \frac{\partial f}{\partial z} $ and this somehow equals to:
+\[ "=" \parop{ }{f}{x} \parop{ }{x}{z} + \parop{ }{f}{y} \parop{ }{y}{z} \]
+and it is equal:
+\[ \frac{1}{2}\lrp{\parop{}{f}{x} - i \parop{}{f}{y}} \]
+
+so that we define:
+\[  \parop{}{f}{z} = \frac{1}{2}\lrp{\parop{}{f}{x} - i \parop{}{f}{y}} \]
+and with this the Cauchy-Riemman can be written as:
+\[ \parop{}{f}{\bar{z}} = 0 \]
+and that:
+\[ \parop{}{f}{x} + i \parop{}{f}{y} = 0 \]
+
+As an example: with this notation this becomes:
+\[ f(x,y) \leq f(z,\bar{z}) \]
+which in humans terms is:
+\[ f(z,\bar{z}) = 2 \operatorname{Re}(z^2) \]
+and it has some sense.
+
+\textbf{Example} Given $u(x,y)$, find a $f(z)$ analytic, such that $u(x,y)$ is the real part of $f(z) $, is the same part as
+$ u(x,y) = \frac{1}{2}\lrp{f(x+iy) + \bar{f(x+iy)}}$
+
+Leap of faith: $ x = \frac{z}{2}, y = \frac{z}{2i} $ where $z$ is a complex variable.
+This is motivated by the fact:
+\[ u(\frac{z}{2}, \frac{z}{2i}) =\frac{1}{2}\lrp{f(z)} = \frac{1}{2}\lrp{f(z) + \bar{f(0)}} \]
+Any hiw, it gives us the formula:
+\[ f(z) = 2u\lrp{\frac{z}{2}, \frac{z}{2i}} - \bar{f(0)} \]
+
+And this solves the main problem, which is as mystical as we see.
+
+\subsection*{Polynomial}\label{sec:polynomial}
+A polynomial $ f(z) = a_0 + a_1 z + \ldots a_n z_n \quad a_j \in \CC $, tenemos entonces $\lrp{z^n}'$ exists and $z^n$ analytic, imples that: $f'(z) $ exists for all polynomials.
+
+\textbf{Fundamental Theorem of Algebra}: For any polynomial $f(z)$ of $\operatorname{deg} \geq 1 $ has at least 1 complex root. Suppose $ p(z) $ is a polynomial of degree n$n$ $\alpha$ any $\CC $ number.
+So we observe that we have $P(z) = (z-\alpha)P_1(z)  + (r \in \CC) $. 
+By \textbf{Bezout's Theorem}  we have that:
+\[ P(\alpha) = 0 \implies r = 0  \]
+So, step by step we have just shown that we decrease the degree of the polynomial minus 1.
+
+\textbf{Terminology} let $ P(z) = (z - \beta_1)^{h_1} \ldots (z - \beta_m)^{h_m} $
+$h_j$ is the \textbf{multiplicity } of the root $ \beta_j$
+
+\begin{thm}
+	\textbf{Lucas} If all zeros of a polynomial  $P(z)$ in a half-plane $H$, then all zeros of $P'(z)$ also line in $H$
+\end{thm}
+\begin{corolary}
+	All zeros of $ P'(z) $ are contained in the minimum convex polygon containing zeros of $P(z)$.
+\end{corolary}
+
+\subsection*{Rational functions}
+We denote then by rational functions of the form: 
+\[ \frac{P(z)}{Q(z)} \]
+a typical member of the set of rational functions:
+\[ R(z)  = \frac{a_0 + \ldots + a_n z^n}{b_0 + \ldots b_m z^m} \]
+we can extend this function in the form of:
+\[ \function{R(z)}{\CC}{\CC \cup \set{\infty}} \]
+and we consider $ \CC \cup \infty $ is called the extended complex plane.
+and we can extend also:
+\[ \function{R(z)}{\CC \cup \set{\infty}}{\CC \cup \set{\infty}} \]
+So that:
+\[ R(\infty) = \lim\limits_{\abs{z} \rightarrow \infty} R(z)\]
+observe that this has inside a theorem that no matter form where you closes to infinity so that is either: $0 , \infty, \frac{a_n}{b_m}$ the last case holds if and only if: $n = m$
+
+\textbf{Neighborhood of zero \& Neighborhoods of Infinite}
+
+Without loss of generality $p,Q$ do not have common zeros.
+
+\begin{define}
+	If $ \alpha $ is a root of multiplicity $h$ of $P(z)$, the $\alpha $ os said to be a zero of order $h$ of $R(z)$
+\end{define}
+\begin{define}
+	If $\beta $ is a root of multiplicity $k$ of $Q(z) $ then $ \beta$ is said to be a pole of order $h$ of $R(z)$
+\end{define}
+
+In the extended complex plane the total order of all poles is equal to the total order of roots. 
