@@ -1,0 +1,32 @@
+\textbf{Partial fractions}
+
+\[ R = \frac{P}{Q} \] 
+with no common factors.
+let us denote $\beta_1, \ldots, \beta_q \in \CC$ are distinct zeros of $Q$
+so that:
+\[ R(z) = G^{\qt{new}}(z) + \sum_{i=1}^{q} G_i (\frac{1}{z - \beta_i}) \]
+$ G^{\qt{new}}, G_i $ are polynomials.
+
+Observe that at $ \infty $, what we do is to apply the division algorithm, so that we have: (Part 1)
+\[ P = A \cdot z \cdot Q + B \]
+wehre $ \operatorname{deg}(B) \leq \operatorname{deg}(Q) $, and we rewrite that $ R = \frac{P}{Q}  = G + H$, where $G$ is a polynomial such that $G(0)=0$, and $H(\infty) \in \CC$ which is the limit as $  \goesto{z}{\infty} $.
+
+Part 2. For each $\beta_i$, observe that we can rewrite, 
+\[ R_i(\zeta):= R(\beta_i + \frac{1}{\zeta}) \]
+so that $R_i(\zeta)$ is a rational function of $ \zeta $ with a pole at $ \zeta = \infty $. So by the first part:
+\[ R_i(\zeta) = G_i(\zeta) + H_i(\zeta) \]
+if now we write:
+\[ z = \beta_i + \frac{1}{\zeta}  \quad \qt{so that } \quad \zeta = \frac{1}{z - \beta_i}\]
+and we can rewritte:
+\[ R(z) =  G_i(\frac{1}{z - \beta_i}) + H_i(\frac{1}{z \beta_i})\]
+with $G_i(\frac{1}{z- \beta_i})$ is a polynomial in $\frac{1}{z-\beta_i}  $ and $ H_i(\frac{1}{z - \beta_i}) $ goes to something that is a complex number. $ z \rightarrow \beta_i $
+\[ R(z) = G(z) - \sum_{n=1}^{q} G_i (\frac{1}{z - \beta_i}) \]
+has no pole in $\CC$, for which we conclude it its a constant function. So that $ G^{\qt{new}}(z) G^{\qt{old} (z) $
+	
+\textbf{Review of Sequences}
+
+Consider $ \mathbb{N} : 0,1,... $ a sequence.
+
+\begin{define}
+	$ \forall \epsilon > 0 \exists N \in \mathbb{N} \qt{s.t.} \forall n \geq N $ it happens that $ \abs{a_n - A} < \epsilon $
+\end{define}

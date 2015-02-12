@@ -1,0 +1,280 @@
+\documentclass[notitlepage]{report}
+%\usepackage{lmodern}
+%\usepackage[T1]{fontenc}
+%\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mdframed}
+\usepackage{hyperref}
+\author{David Cardozo}
+\title{Homework 1}
+\newtheorem{define}{Definition}
+\newtheorem{thm}{Theorem}
+\newtheorem{prop}{Proposition}
+\newtheorem{lem}{Lemma}
+
+%Customized Commands
+\newcommand{\lrp}[1]{\left( #1 \right)}
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\set}[1]{\left\lbrace #1 \right\rbrace}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\ZN}[1]{\frac{\mathbb{Z}}{#1 \mathbb{Z}}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\qt}[1]{\textrm{#1}}
+\newcommand{\function}[3]{#1 : #2 \rightarrow #3}
+\newcommand{\contained}{\subseteq}
+\newcommand{\restric}[2]{ #1\restriction_{#2}}
+\newcommand{\divs}{\mid}
+\newcommand{\ndivs}{\nmid}
+
+
+%%
+\newcommand{\eqnumtag}{%
+	% step the counter and make it lable-able
+	\refstepcounter{equation}%
+	% print the counter as tag
+	\tag{\theequation}%
+}
+%%
+
+\begin{document}
+	\maketitle
+	
+	
+
+	
+	\begin{enumerate}
+		\item
+		Compute
+		\[
+		\sqrt{i}, \qquad \sqrt{-i}, \qquad \sqrt{1 + i}, \qquad
+		\sqrt{\frac{1 - i\sqrt{3}}{2}}
+		\]
+		For \(\sqrt{i}\), we are looking for \(x\) and \(y\) such that
+		\begin{align}
+		\sqrt{i} & = x + iy\notag\\
+		i & = x^2 - y^2 + 2xyi\notag\\
+		x^2 - y^2 & = 0\label{1.1.2.1a}\\
+		2xy & = 1\label{1.1.2.1b}
+		\end{align}
+		From \eqref{1.1.2.1a}, we see that \(x^2 = y^2\) or \(\pm x = \pm y\).
+		Also, note that \(i\) is the upper half plane (UHP).
+		That is, the angle is positive so \(x = y\) and \(2x^2 = 1\) from
+		\eqref{1.1.2.1a}
+		Therefore, \(\sqrt{i} = \frac{1}{\sqrt{2}}(1 + i)\).
+		We also could have done this problem using the polar form of \(z\).
+		Let \(z = i\).
+		Then \(z = e^{i\pi/2}\) so \(\sqrt{z} = e^{i\pi/4}\) which is exactly what we
+		obtained.
+		For \(\sqrt{-i}\), let \(z = -i\).
+		Then \(z\) in polar form is \(z = e^{-i\pi/2}\) so
+		\(\sqrt{z} = e^{-i\pi/4} = \frac{1}{\sqrt{2}}(1 - i)\).
+		For \(\sqrt{1 + i}\), let \(z = 1 + i\).
+		Then \(z = \sqrt{2}e^{i\pi/4}\) so \(\sqrt{z} = 2^{1/4}e^{i\pi/8}\).
+		Finally, for \(\sqrt{\frac{1 - i\sqrt{3}}{2}}\), let
+		\(z = \frac{1 - i\sqrt{3}}{2}\).
+		Then \(z = e^{-i\pi/3}\) so
+		\(\sqrt{z} = e^{-i\pi/6} = \frac{1}{2}(\sqrt{3} - i)\).
+		\item
+		Find the four values of \(\sqrt[4]{-1}\).
+		\par\smallskip
+		Let \(z = \sqrt[4]{-1}\) so \(z^4 = -1\).
+		Let \(z = re^{i\theta}\) so \(r^4e^{4i\theta} = -1 = e^{i\pi(1 + 2k)}\).
+		\begin{align*}
+		r^4 & = 1\\
+		\theta & = \frac{\pi}{4}(1 + 2k)
+		\end{align*}
+		where \(k = 0\), \(1\), \(2\), \(3\).
+		Since when \(k = 4\), we have \(k = 0\).
+		Then \(\theta = \frac{\pi}{4}\), \(\frac{3\pi}{4}\), \(\frac{5\pi}{4}\),
+		and \(\frac{7\pi}{4}\).
+		\[
+		z = e^{i\pi/4}, e^{3i\pi/4}, e^{5i\pi/4}, e^{7i\pi/4}
+		\]
+		\item
+		Compute \(\sqrt[4]{i}\) and \(\sqrt[4]{-i}\).
+		\par\smallskip
+		Let \(z = \sqrt[4]{i}\) and \(z = re^{i\theta}\).
+		Then \(r^4e^{4i\theta} = i = e^{i\pi/2}\).
+		\begin{align*}
+		r^4 & = 1\\
+		\theta & = \frac{\pi}{8}
+		\end{align*}
+		so \(z = e^{i\pi/8}\).
+		Now, let \(z = \sqrt[4]{-i}\).
+		Then \(r^4e^{4i\theta} = e^{-i\pi/2}\) so \(z = e^{-i\pi/8}\).
+	\end{enumerate}
+	
+	\noindent\rule{\textwidth}{1pt}\\[-0.1cm]
+		
+	\textbf{1. Solve the quadratic equation}
+	
+	\[
+	z^2 + (\alpha + i\beta)z + \gamma + i\delta = 0.
+	\]
+	The quadratic equation is \(x = \frac{-b\pm\sqrt{b^2 - ac}}{2}\).
+	For the complex polynomial, we have
+	\[
+	z = \frac{-\alpha - \beta i\pm
+		\sqrt{\alpha^2 - \beta^2 - 4\gamma + i(2\alpha\beta - 4\delta)}}{2}
+	\]
+	Let
+	\(a + bi = \sqrt{\alpha^2 - \beta^2 - 4\gamma + i(2\alpha\beta - 4\delta)}\).
+	Then
+	\[
+	z = \frac{-\alpha - \beta\pm (a + bi)}{2}
+	\]
+	
+	
+	
+	\noindent\rule{\textwidth}{1pt}\\[-0.1cm]
+	
+	  Prove that
+	  \[
+	  \Bigl\lvert\frac{a - b}{1 - \bar{a}b}\Bigr\rvert = 1
+	  \]
+	  if either \(\lvert a\rvert = 1\) or \(\lvert b\rvert = 1\).
+	  What exception must be made if \(\lvert a\rvert = \lvert b\rvert = 1\)?
+	  \par\smallskip
+	  Recall that \(\lvert z\rvert^2 = z\bar{z}\).
+	  \begin{align*}
+	  1^2 & = \Bigl\lvert\frac{a - b}{1 - \bar{a}b}\Bigr\rvert^2\\
+	  1 & = \Bigl(\frac{a - b}{1 - \bar{a}b}\Bigr)
+	  \Bigl(\frac{\overline{a - b}}{\overline{1 - \bar{a}b}}\Bigr)\\
+	  & = \Bigl(\frac{a - b}{1 - \bar{a}b}\Bigr)
+	  \Bigl(\frac{\bar{a} - \bar{b}}{1 - a\bar{b}}\Bigr)\\
+	  & = \frac{a\bar{a} - a\bar{b} - \bar{a}b + b\bar{b}}
+	  {1 - \bar{a}b - a\bar{b} + a\bar{a}b\bar{b}}\eqnumtag\label{1.1.4.3}
+	  \end{align*}
+	  If \(\lvert a\rvert = 1\), then \(\lvert a\rvert^2 = a\bar{a} = 1\) and
+	  similarly for \(\lvert b\rvert^2 = 1\).
+	  Then \eqref{1.1.4.3} becomes
+	  \[
+	  \frac{1 - a\bar{b} - \bar{a}b + b\bar{b}}{1 - \bar{a}b - a\bar{b} + b\bar{b}}
+	  \qquad\text{and}\qquad
+	  \frac{1 - a\bar{b} - \bar{a}b + a\bar{a}}{1 - \bar{a}b - a\bar{b} + a\bar{a}}
+	  \]
+	  respectively which is one.
+	  If \(\lvert a\rvert = \lvert b\rvert = 1\), then
+	  \(\lvert a\rvert^2 = \vert b\rvert^2 = 1\) so \eqref{1.1.4.3} can be written as
+	  \[
+	  \frac{2 - a\bar{b} - \bar{a}b}{2 - \bar{a}b - a\bar{b}}.
+	  \]
+	  Therefore, we must have that \(a\bar{b} + \bar{a}b\neq 2\).
+	  
+	  \noindent\rule{\textwidth}{1pt}\\[-0.1cm]
+	  
+	   Prove that
+	   \[
+	   \Bigl\lvert\frac{a - b}{1 - \bar{a}b}\Bigr\rvert < 1
+	   \]
+	   if \(\lvert a\rvert < 1\) and \(\lvert b\rvert < 1\).
+	   \par\smallskip
+	   From the properties of the modulus, we have that
+	   \begin{align*}
+	   \Bigl\lvert\frac{a - b}{1 - \bar{a}b}\Bigr\rvert
+	   & = \frac{\lvert a - b\rvert}{\lvert 1 - \bar{a}b\rvert}\\
+	   & = \frac{\lvert a - b\rvert^2}{\lvert 1 - \bar{a}b\rvert^2}\eqnumtag
+	   \label{1.1.5.1ineq1}\\
+	   & = \frac{(a - b)(\bar{a} - \bar{b})}{(1 - \bar{a}b)(1 - a\bar{b})}\\
+	   & = \frac{\lvert a\rvert^2 + \lvert b\rvert^2 - a\bar{b} - \bar{a}b}
+	   {1 + \lvert a\rvert^2\lvert b\rvert^2 - \bar{a}b - a\bar{b}}\\
+	   & < \frac{2 - a\bar{b} - \bar{a}b}{2 - \bar{a}b - a\bar{b}}\\
+	   & = 1\eqnumtag\label{1.1.5.1ineq2}
+	   \end{align*}
+	   From \eqref{1.1.5.1ineq2}, we have
+	   \begin{align*}
+	   \frac{\lvert a - b\rvert^2}{\lvert 1 - \bar{a}b\rvert^2} & < 1\\
+	   \frac{\lvert a - b\rvert}{\lvert 1 - \bar{a}b\rvert} & < 1
+	   \end{align*}
+	   
+	   
+	   \noindent\rule{\textwidth}{1pt}\\[-0.1cm]
+	   
+	   
+	 If \(\lvert a_i\rvert < 1\), \(\lambda_i\geq 0\) for \(i = 1,\ldots,n\) and
+	 \(\lambda_1 + \lambda_2 + \cdots + \lambda_n = 1\), show that
+	 \[
+	 \lvert\lambda_1a_1 + \lambda_2a_2 + \cdots + \lambda_na_n\rvert < 1.
+	 \]
+	 Since \(\sum_{i = 1}^n\lambda_i = 1\) and \(\lambda_i\geq 0\),
+	 \(0\leq \lambda_i < 1\).
+	 By the triangle inequality,
+	 \begin{align*}
+	 \lvert\lambda_1a_1 + \lambda_2a_2 + \cdots + \lambda_na_n\rvert
+	 & \leq\lvert\lambda_1\rvert\lvert a_1\rvert + \cdots +
+	 \lvert a_n\rvert\lvert\lambda_n\rvert\\
+	 & < \sum_{i = 1}^n\lambda_i\\
+	 & = 1
+	 \end{align*}
+	 
+	 
+	 \noindent\rule{\textwidth}{1pt}\\[-0.1cm]
+	 
+	  Show that there are complex numbers \(z\) satisfying
+	  \[
+	  \lvert z - a\rvert + \lvert z + a\rvert = 2\lvert c\rvert
+	  \]
+	  if and only if \(\lvert a\rvert\leq\lvert c\rvert\).
+	  If this condition is fulfilled, what are the smallest and largest values
+	  \(\lvert z\rvert\)?
+	  \par\smallskip
+	  
+	  
+	  By the triangle inequality,
+	  \[
+	  \lvert z - a\rvert + \lvert z + a\rvert\geq
+	  \lvert (z - a) - (z + a)\rvert = 2\lvert a\rvert
+	  \]
+	  so
+	  \begin{align*}
+	  2\lvert c\rvert & = \lvert z - a\rvert + \lvert z + a\rvert\\
+	  & \geq \lvert (z - a) - (z + a)\rvert\\
+	  & = 2\lvert a\rvert
+	  \end{align*}
+	  Thus, \(\lvert c\rvert\geq\lvert a\rvert\).
+	  If \(\lvert a\rvert\leq\lvert c\rvert\), then let
+	  \(z = \lvert c\rvert\frac{a}{\lvert a\rvert}\).
+	  \begin{align*}
+	  \lvert z - a\rvert + \lvert z + a\rvert
+	  & \geq \lvert (z - a) + (z + a)\rvert\\
+	  & = 2\lvert\lvert c\rvert\rvert\\
+	  \intertext{since \(\frac{a}{\lvert a\rvert}\) is a unit vector.}
+	  & = 2\lvert c\rvert
+	  \end{align*}
+	  Thus, \(2\lvert c\rvert\geq 2\lvert c\rvert\) which is equality.
+	  \begin{align*}
+	  2\lvert c\rvert & = \lvert z + a\rvert + \lvert z - a\rvert\\
+	  4\lvert c\rvert^2 & =
+	  \bigl(\lvert z + a\rvert + \lvert z - a\rvert\bigr)^2\\
+	  & = 2(\lvert z\rvert^2 + \lvert a\rvert^2)\\
+	  & \leq 4(\lvert z\rvert^2 + \lvert a\rvert^2)\\
+	  \lvert c\rvert^2 & \leq \lvert z\rvert^2 + \lvert a\rvert^2\\
+	  \sqrt{\lvert c\rvert^2 - \lvert a\rvert^2} & \leq \lvert z\rvert
+	  \end{align*}
+	
+	 \noindent\rule{\textwidth}{1pt}\\[-0.1cm]
+	   If \(\omega\) is given by \(\omega = \cos\bigl(\frac{2\pi}{n}\bigr) +
+	   i\sin\bigl(\frac{2\pi}{n}\bigr)\), prove that
+	   \[
+	   1 + \omega^h + \omega^{2h} + \cdots + \omega^{(n - 1)h} = 0
+	   \]
+	   for any integer \(h\) which is not a multiple of \(n\).
+	   \par\smallskip
+	   Let \(\omega = \cos\bigl(\frac{2\pi}{n}\bigr) +
+	   i\sin\bigl(\frac{2\pi}{n}\bigr)\) be written in exonential form as
+	   \(\omega = e^{2\pi i/n}\).
+	   Then the series can be written as
+	   \[
+	   \sum_{k = 0}^{n - 1}\bigl(e^{2\pi ih/n}\bigr)^k =
+	   \frac{e^{2ih\pi} - 1}{e^{2hi\pi/n} - 1}.
+	   \]
+	   Since \(h\) is an integer, \(e^{2ih\pi} = 1\); therefore, the series zero.
+	 
+\end{document}
