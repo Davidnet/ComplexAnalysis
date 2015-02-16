@@ -1,0 +1,89 @@
+\section*{A bit of Analysis}
+Now if we move a little bit to analysis, we have the following theorem.
+
+Preceding inequalities to remember:
+
+\[ \abs{\operatorname{Re}(z)} \leq \abs{z} \quad \abs{\operatorname{Im}(z)} \leq \abs{z} \]
+
+and an equality to remember:
+
+\[ \abs{z}^2 = z \cdot \bar{z} \]
+
+\textbf{Propositon} The complex sequence $ \set{z_n} $, where $ z_n = x_n + iy_n $, converges to the limit $ \zeta = \xi + i\eta $, if and only if the real sequences $ \set{x_n}  $ and $ \set{y_n} $ converges to the limits $ \xi $ and $ \eta $ respectively.
+
+\textit{Proof} Suppose that $ z_n \rightarrow \zeta  $, that is, for any $ \epsilon > 0 $, there exist $ N \in \mathbb{N} $, such that $ \abs{z_n - \zeta}<\epsilon $ holds for $ n > N$. It follows then that:
+\begin{align*}
+\abs{x_n - \xi} = \abs{\operatorname{Re}(z_n - \zeta)} \leq \abs{z_n - \zeta} < \epsilon \\
+\abs{y_n - \eta} = \abs{\operatorname{Im}(z_n - \zeta)} \leq \abs{z_n - \zeta} < \epsilon
+\end{align*}
+and these holds for $n > N $, and we conclude that $ x_n \rightarrow \xi $ and $ y_n \rightarrow \eta $.
+
+Now conversely, suppose that $ x_n \rightarrow \xi $, and $ y_n \rightarrow \eta $, or in other words, for every $ \epsilon > 0 $, there exists an $ N \in \mathbb{N} $, such that $ \abs{x_n - \xi} < \epsilon $ and $ \abs{y_n - \eta} < \epsilon $ for $ n > N $. It follows then:
+\[ \abs{z_n - \zeta} = \abs{(x_n - \xi) + i(y_n - \eta)} \overset{\Delta-\textrm{inequality}}{\leq} \abs{x_n - \xi} + \abs{y_n - \eta} < \epsilon \]
+holds for $ n > N $ and hence $ z_n \rightarrow \zeta $ as $ n \rightarrow \infty $. \qed
+
+A sequence $ \set{z_n} $ is said to be \textbf{Cauchy sequence} if:
+\[ \abs{z_n - z_m} \rightarrow 0 \quad \textrm{ as } n,m \rightarrow \infty  \]
+
+more formally:
+\begin{define}
+	A sequence $ \set{z_n} $ is said to be a \textbf{Cauchy sequence }, if given $ \epsilon > 0 $ there exists an integer $ N > 0 $ so that $ \abs{z_n - z_m} < \epsilon $ whenever $ n,m > N $
+\end{define}
+
+\textbf{Proposition} $z_n$ is Cauchy if and only if the real and imaginary parts are Cauchy.
+
+\textit{Proof} Suppose $ z_n $ is Cauchy, so that there exist $N \in \mathbb{N} $ for which:
+\[ \abs{z_n - z_m} < \epsilon \]
+holds for $ n,m > N $, so observe that:
+\begin{align*}
+\abs{\operatorname{Re}(z_n - z_m)} \leq \abs{z_n - z_m} &< \epsilon \\
+\abs{\operatorname{Im}(z_n - z_m)} \leq \abs{z_n - z_m} &< \epsilon 
+\end{align*}
+
+Conversely, suppose that real and imaginary parts are Cauchy, that is, $ \abs{\operatorname{Re}(z_n - z_m)} < \frac{\epsilon}{2} $ and $ \abs{\operatorname{Im}(z_n - z_m)}< \frac{\epsilon}{2} $ holds for some $ N \in \mathbb{N} $ and $ n,m > N  $, so let us observe:
+\begin{align*}
+\abs{z_n - z_m } = \abs{\operatorname{Re}(z_n - z_m) + i (\operatorname{Im}(z_n - z_m))} \\
+\abs{\operatorname{Re}(z_n - z_m) + i (\operatorname{Im}(z_n - z_m))}  \leq \abs{\operatorname{Re}(z_n - z_m)} + \abs{\operatorname{Im}(z_n - z_m)}
+\end{align*}
+so that:
+\begin{align*}
+\abs{z_n - z_m} \leq \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon
+\end{align*}
+so we conclude that $ z_n - z_m $ is Cauchy. \qed
+
+Since the sequence $ \set{z_n} $ is Cauchy if and only if the sequences of real and imaginary parts of $ z_n $ are, we conclude that every Cauchy sequence in $ \CC $ has a limit in $ \CC $, summarizing:
+
+\begin{thm}
+	$ \CC $ is complete
+\end{thm}
+
+\textbf{ \LARGE Sets in the complex plane}
+
+\begin{define}
+	We define the \textbf{open disc} $ D_r(z_0) $ \textbf{of radius} $r$ \textbf{centered at} $ z_0 $ to be the set of all complex numbers that are at absolute value strictly less than $r$ from $ z_0 $. In other words,
+	\[ D_r(z_0) = \set{z \in \CC : \abs{z - z_0}< r} \]
+\end{define}
+
+Analogously, the \textbf{closed disc}:
+\[ \bar{D}_r(z_0) = \set{z \in \CC : \abs{z - z_0} \leq r} \]
+
+The \textbf{unit disc} (open disc centered at the origin with radius $1$) has an important notation:
+\[ \mathbb{D} = \set{z \in \CC : \abs{z}< 1} \]
+
+\begin{define}
+	Given $ \Omega \subset \CC $, a point $ z_0 $ is an \textbf{interior point} of $ \Omega $ if there exists $ r>0  $ such that:
+	\[ D_r(z_0) \subset \Omega \]
+\end{define}
+
+The \textbf{interior} of $ \Omega $ consists of all its interior points. Finally, a set $ \Omega $ is \textbf{open} if every point in that set is an interior point of $ \Omega $.
+
+A set $ \Omega $ is \textbf{closed} if its complement $ \CC - \Omega $ is open.
+
+\begin{define}
+	A point $ z \in \CC $ is said to be a \textbf{limit point} of the set $ \Omega $ if there exists a sequence of points $ z_n \in \Omega $ such that $ z_n \neq z $ and $ \lim\limits_{n \rightarrow \infty} z_n = z $
+\end{define}
+
+\textbf{Proposition} A set is closed if and only if it contains all its limit points.
+
+\textit{Proof} 
+Suppose that $\Omega$ is closed, so that $ \Omega^c $ is open, since $ \Omega^c $ is open, every point of $ \Omega^c $ is an interior point

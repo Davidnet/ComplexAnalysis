@@ -113,7 +113,49 @@ In general, but much more cumbersome, a general solution is:
  
  Finally, $ \RR$ satisfies the \emph{completeness condition}, i.e, every increasing and bounded sequence of real numbers has a limit.
  
- Take note that the equation $ x^2 + 1 =0 $ has no solution in $ \RR $ since $ x^2 + 1 $ is always positive. 
+ Take note that the equation $ x^2 + 1 =0 $ has no solution in $ \RR $ since $ x^2 + 1 $ is always positive.
+ 
+\section*{Triangle Inequality and Important stuff}
+We have the following inequalities
+\begin{align*}
+\abs{x - z} \leq \abs{x - y} + \abs{y - z} \\
+\end{align*} 
+which has the interpretation of going directly is shorter than going to intermediate points.
+\begin{align*}
+\abs{x + y} \leq \abs{x} + \abs{y}
+\end{align*}
+which is the usual geometric interpretation of geometry triangle.
+
+Finally, we have the interesting reverse triangle inequality.
+
+\[ \abs{\abs{x} - \abs{y}} \leq \abs{x-y} \]
+
+which is proven as follows:
+
+\textit{Proof} Observe:
+\begin{align*}
+\abs{(z-w)+w} &\leq \abs{z-w} + \abs{w} \\
+\abs{z} &\leq \abs{z-w} + \abs{w}
+\end{align*}
+and also take note that:
+\begin{align*}
+\abs{(w-z) + z} &\leq \abs{w-z} + \abs{z} \\
+\abs{w} &\leq \abs{w-z} + \abs{z}
+\end{align*}
+and, we end up with:
+\begin{align*}
+\abs{z} - \abs{w} &\leq \abs{z-w} \\
+\abs{z} - \abs{w} &\geq -\abs{z-w}
+\end{align*}
+and combining the preceding results (that is, rearrange last inequality and observe order relations, think about it):
+\[ -\abs{z-w} \leq \abs{z} - \abs{w} \leq \abs{z-w}  \]
+and this implies:
+\[ \abs{\abs{z} - \abs{w}} \leq \abs{z - w} \]
+which proves the above theorem.
+
+
+
+
  
 
 
