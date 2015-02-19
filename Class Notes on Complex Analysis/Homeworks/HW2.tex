@@ -1,0 +1,78 @@
+\documentclass[notitlepage]{report}
+%\usepackage{lmodern}
+%\usepackage[T1]{fontenc}
+%\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mdframed}
+\usepackage{hyperref}
+\author{David Cardozo}
+\title{Cuervo es un bastardo}
+\newtheorem{define}{Definition}
+\newtheorem{thm}{Theorem}
+\newtheorem{prop}{Proposition}
+\newtheorem{lem}{Lemma}
+
+%Customized Commands
+\newcommand{\lrp}[1]{\left( #1 \right)}
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\set}[1]{\left\lbrace #1 \right\rbrace}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\ZN}[1]{\frac{\mathbb{Z}}{#1 \mathbb{Z}}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\qt}[1]{\textrm{#1}}
+\newcommand{\function}[3]{#1 : #2 \rightarrow #3}
+\newcommand{\contained}{\subseteq}
+\newcommand{\restric}[2]{ #1\restriction_{#2}}
+\newcommand{\divs}{\mid}
+\newcommand{\ndivs}{\nmid}
+
+
+%%
+\newcommand{\eqnumtag}{%
+	% step the counter and make it lable-able
+	\refstepcounter{equation}%
+	% print the counter as tag
+	\tag{\theequation}%
+}
+%%
+
+\begin{document}
+\maketitle
+
+\item
+	
+
+\textbf{Solution}
+
+Suppose that we are given $ P(\alpha_k) = c_k \in \CC $. In the same spirit of the above problem, we put:
+
+\[ Q(z) = (z-\alpha_1)\cdot \ldots \cdot (z- \alpha_n) \]
+
+Since by hypothesis we know that $ \operatorname{deg}P < n $, we can use the previous result:
+
+\[ \frac{P(z)}{Q(z)} = \sum_{k=1}^{n} \frac{P(\alpha_k)}{Q'(\alpha_k)(z -\alpha_k)} = \sum_{k=1}^{n} \frac{c_k}{Q'(\alpha_k)(z - \alpha_k)} \]
+
+we conclude then:
+
+\begin{align}
+ P(z) &= Q(z) \cdot \sum_{k =1}^{n} \frac{c_k}{Q'(\alpha_k)(z-\alpha_k)} \\
+ &= \sum_{k=1}^{n} \frac{c_k}{Q'(\alpha_k)} \cdot \lrp{\frac{Q(z)}{z-\alpha_k}} \label{equation}
+\end{align}
+
+Now if we suppose that $ P(z) $ is given explicitly as \eqref{equation}. So that:
+
+\[ P(\alpha_1) = \frac{c_1(\alpha_1 - \alpha_2) \ldots (\alpha_1 - \alpha_n)}{(\alpha_1 - \alpha_2) \ldots (\alpha_1 - \alpha_n)} = c_1 \]
+
+Similarly, $ P(\alpha_k) = c_k $ for every $ k = 1, \ldots, n $. We conclude that $ P(z) $ is uniquely determined by \eqref{equation}, that is:
+
+\[ P(z) = \sum_{k=1}^{n} c_k \prod_{j=1, j \neq k}^{n} \frac{z - \alpha_j}{\alpha_k - \alpha_j} \]
+This is the famous Lagrange's interpolation polynomial.
+
+\end{document}

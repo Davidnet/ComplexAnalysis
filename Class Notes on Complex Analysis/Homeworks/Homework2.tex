@@ -1,0 +1,254 @@
+\documentclass[notitlepage]{report}
+%\usepackage{lmodern}
+%\usepackage[T1]{fontenc}
+%\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mdframed}
+\usepackage{hyperref}
+\author{David Cardozo}
+\title{Homework 2}
+\newtheorem{define}{Definition}
+\newtheorem{thm}{Theorem}
+\newtheorem{prop}{Proposition}
+\newtheorem{lem}{Lemma}
+
+%Customized Commands
+\newcommand{\lrp}[1]{\left( #1 \right)}
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\set}[1]{\left\lbrace #1 \right\rbrace}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\ZN}[1]{\frac{\mathbb{Z}}{#1 \mathbb{Z}}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\qt}[1]{\textrm{#1}}
+\newcommand{\function}[3]{#1 : #2 \rightarrow #3}
+\newcommand{\contained}{\subseteq}
+\newcommand{\restric}[2]{ #1\restriction_{#2}}
+\newcommand{\divs}{\mid}
+\newcommand{\ndivs}{\nmid}
+
+
+%%
+\newcommand{\eqnumtag}{%
+	% step the counter and make it lable-able
+	\refstepcounter{equation}%
+	% print the counter as tag
+	\tag{\theequation}%
+}
+\usepackage{cleveref}
+%%
+
+\begin{document}
+	
+	\maketitle
+
+\begin{enumerate}
+	
+\item
+  Find the most general harmonic polynomial of the form
+  \(ax^3 + bx^2y + cxy^2 + dy^3\).
+  Determine the conjugate harmonic function and the corresponding analytic
+  function by integration and by the formal method.
+  \par\smallskip
+  In order to be harmonic, \(u(x,y) = ax^3 + bx^2y + cxy^2 + dy^3\) has to
+  satisfy \(\nabla^2u = 0\) so
+  \[
+  u_{xx} + u_{yy} = (3a + c)x + (3d + b)y = 0.
+  \]
+  Thus, \(3a = -c\) and \(3d = -b\) so
+  \[
+  u(x,y) = ax^3 - 3axy^2 - 3dx^2y + dy^3.
+  \]
+  To find the harmonic conjugate \(v(x,y\), we need to look at the
+  Cauchy-Riemann equations.
+  By the Cauchy-Riemann equations,
+  \[
+  u_x = 3ax^2 - 3ay^2 - 6dxy = v_y.
+  \]
+  Then we can integrate with respect to \(y\) to find \(v(x,y)\).
+  \[
+  v(x,y) = \int(3ax^2 - 3ay^2 - 6dxy)dy = 3ax^2y - ay^3 - 3dxy^2 + g(x)
+  \]
+  Using the second Cauchy-Riemann, we have
+  \[
+  v_x = 6axy - 3dy^2 + g'(x) = -u_y = 3dx^2 + 6axy - 3dy^2
+  \]
+  so \(g'(x) = 3dx^2\).
+  Then \(g(x) = dx^3 + C\) and
+  \[
+  v(x,y) = 3ax^2y - ay^3 - 3dxy^2 + dx^3 + C.
+  \]
+\item
+  Show that an analytic function cannot have a constant absolute value without
+  reducing to a constant.
+  \par\smallskip
+  Let \(f = u(x,y) + iv(x,y)\).
+  Then the modulus of \(f\) is \(\lvert f\rvert = \sqrt{u^2 + v^2}\).
+  If the modulus of \(f\) is constant, then \(u^2 + v^2 = c\) for some constant
+  \(c\).
+  If \(c = 0\), then \(f = 0\) which is constant.
+  Suppose \(c\neq 0\).
+  By taking the derivative with respect to \(x\) and \(y\), we have
+  \begin{align*}
+    0 & = \frac{\partial}{\partial x}(u^2 + v^2)\\
+      & = 2uu_x + 2vv_x\\
+      & = uu_x + vv_x\\
+    0 & = \frac{\partial}{\partial y}(u^2 + v^2)\\
+      & = uu_y + vv_y
+  \end{align*}
+  Since \(f\) is analytic, \(f\) satisfies the Cauchy-Riemann.
+  That is, \(u_x = v_y\) and \(u_y = -v_x\).
+  \begin{subequations}
+    \begin{align}
+      uv_y + vv_x & = 0\label{2.1.2.4a}\\
+      -uv_x + vv_y & = 0\label{2.1.2.4b}
+    \end{align}
+  \end{subequations}
+  Setting \cref{2.1.2.4a} equal to \cref{2.1.2.4b}, we have
+  \[
+  v_x(u + v) + v_y(u - v) = 0.
+  \]
+  Now, either \(v_x\) and \(v_y\) are zero, \(v_x\) and \(u - v\) are zero,
+  \(v_y\) and \(u + v\) are zero, or \(u + v\) and \(u - v\) are zero.
+  If \(v_x = v_y = 0\), then \(f\) is constant.
+  If \(v_x = 0\) and \(u - v = 0\), then \(u_y = 0\) and \(u = v\).
+  Since \(u = v\) and \(v_x = 0\), then so does \(u_x = 0\) and it also follows
+  that \(v_y = 0\); thus, \(f\) is a constant.
+  By the same argument, \(f\) is a constant when \(v_y = 0\) and \(u + v = 0\).
+  If \(u + v = 0\) and \(u - v = 0\), then \(u = \pm v\) so \(u = v = 0\) and
+  \(f\) is a constant.
+\item
+  Prove rigorously that the functions \(f(z)\) and \(\overline{f(\bar{z})}\)
+  are simultaneously analytic.
+  \par\smallskip
+  Let \(g(z) = \overline{f(\bar{z})}\) and suppose \(f\) is analytic.
+  Then \(g'(z)\)  is
+  \begin{align*}
+    g'(z) & = \lim_{\Delta z\to 0}\frac{g(z + \Delta z) - g(z)}{\Delta z}\\
+          & = \lim_{\Delta z\to 0}
+            \frac{\overline{f(\bar{z} + \overline{\Delta z})} -
+            \overline{f(\bar{z})}}{\Delta z}\\
+          & = \lim_{\Delta z\to 0}\biggl[
+            \overline{\frac{f(\bar{z} + \overline{\Delta z}) - f(\bar{z})}
+            {\overline{\Delta z}}}\biggr]\\
+    \intertext{Since conjugation is continuous, we can move the limit inside
+    the conjugation.}
+          & = \overline{\lim_{\Delta z\to 0}
+            \frac{f(\bar{z} + \overline{\Delta z}) - f(\bar{z})}
+            {\overline{\Delta z}}}\\
+          & = \overline{f'(\bar{z})}
+  \end{align*}
+  Thus, \(g\) is differentiable with derivative \(\overline{f'(\bar{z})}\).
+  Suppose \(\overline{f(\bar{z})}\) is analytic and let
+  \(\overline{g(\bar{z})} = f(z)\).
+  Then by the same argument, \(f\) is differentiable with derivative
+  \(\overline{g'(\bar{z})}\).
+  Therefore, \(f(z)\) and \(\overline{f(\bar{z})}\) are simultaneously
+  analytic.
+  \par\smallskip
+  We could also use the Cauchy-Riemann equations.
+  Let \(f(z) = u(x,y) + iv(x,y)\) where \(z = x + iy\) so \(\bar{z} = x - iy\).
+  Then \(\overline{f(\bar{z})} = \alpha(x,y) - i\beta(x,y)\) where
+  \(\alpha(x,y) = u(x,-y)\) and \(\beta(x,y) = v(x,-y)\).
+  In order for both to be analytic, they both need to satisfy the
+  Cauchy-Riemann equations.
+  That is, \(u_x = v_y\), \(u_y = -v_x\), \(\alpha_x = \beta_y\) and
+  \(\alpha_y = -\beta_x\).
+  \begin{align*}
+    u_x(x,y) & = v_y(x,y)\\
+    u_y(x,y) & = -v_x(x,y)\\
+    \alpha_x(x,y) & = u_x(x,-y)\\
+    \alpha_y(x,y) & = -u_y(x,-y)\\
+    -\beta_x(x,y) & = v_x(x,-y)\\
+    \beta_y(x,y) & = v_y(x,-y)
+  \end{align*}
+  Suppose that \(\overline{f(\bar{z})}\) satisfies the Cauchy-Riemann
+  equations.
+  Then \(\alpha_x = u_x(x,-y) = v_y(x,-y) = \beta_y\) and
+  \(\alpha_y = -u_y(x,-y) = v_x(x,-y) = -\beta_x\).
+  Therefore,
+  \begin{align*}
+    u_x(x,-y) & = v_y(x,-y)\\
+    u_y(x,-y) & = -v_x(x,-y)
+  \end{align*}
+  which means \(f(\bar{z})\) satisfies the Cauchy-Riemann equations.
+  Now, recall that \(\lvert z\rvert = \lvert\bar{z}\rvert\).
+  Since \(f(\bar{z})\) satisfies the Cauchy-Riemann equations, for an
+  \(\epsilon > 0\) there exists a \(\delta > 0\) such that when 
+  \(0 < \lvert\Delta z\rvert < \delta\),
+  \(\lvert f(\bar{z}) - \bar{z}_0\rvert = \lvert f(z) - z_0\rvert < \epsilon\).
+  Thus, \(\lim_{\Delta z\to 0}f(z) = z_0\) so \(f(z)\) is analytic if
+  \(\overline{f(\bar{z})}\) is analytic.
+\item
+  Prove that the functions \(u(z)\) and \(u(\bar{z})\) are simultaneously
+  harmonic.
+  \par\smallskip
+  Since \(u\) is the real part of \(f(z)\), \(u(z) = u(x,y)\) where
+  \(z = x + iy\).
+  Suppose \(u(z)\) is harmonic.
+  Then \(u(z)\) satisfies Laplace equation.
+  \[
+  \nabla^2u(z) = u_{xx} + u_{yy} = 0
+  \]
+  Now, \(u(\bar{z}) = u(x,-y)\) where
+  \(\frac{\partial^2}{\partial x^2}u(\bar{z}) = u_{xx}\) and
+  \(\frac{\partial^2}{\partial y^2}u(\bar{z}) = u_{yy}\) so
+  \[
+  \nabla^2u(\bar{z}) = u_{xx} + u_{yy} = 0.
+  \]
+  Since \(u(z)\) is harmonic, \(u_{xx} + u_{yy} = 0\) so it follows that
+  \(u(\bar{z})\) is harmonic as well.
+  
+  \item
+  If \(Q\) is a polynomial with distinct roots \(\alpha_1,\ldots,\alpha_n\),
+  and if \(P\) is a polynomial of degree \(< n\), show that
+  \[
+  \frac{P(z)}{Q(z)} = \sum_{k = 1}^n
+  \frac{P(\alpha_k)}{Q'(\alpha_k)(z - \alpha_k)}.
+  \]
+  Let's multiple by \(Q(z)\).
+  We then have
+  \[
+  P(z) = \sum_{k = 1}^n\frac{P(\alpha_k)}{Q'(\alpha_k)(z - \alpha_k)}Q(z)
+  \]
+  which are both polynomials of degree less than \(n\) and agreeing at
+  \(z = \alpha_k\).
+  
+  \item 
+	  Use the formula in the preceding exercise to prove that there exists a
+	  unique polynomial \(P\) or degree \(< n\) with given values \(c_k\) at the
+	  points \(\alpha_k\) (Lagrange's interpolation polynomial).
+ 
+ Suppose that we are given $ P(\alpha_k) = c_k \in \CC $. In the same spirit of the above problem, we put:
+ 
+ \[ Q(z) = (z-\alpha_1)\cdot \ldots \cdot (z- \alpha_n) \]
+ 
+ Since by hypothesis we know that $ \operatorname{deg}P < n $, we can use the previous result:
+ 
+ \[ \frac{P(z)}{Q(z)} = \sum_{k=1}^{n} \frac{P(\alpha_k)}{Q'(\alpha_k)(z -\alpha_k)} = \sum_{k=1}^{n} \frac{c_k}{Q'(\alpha_k)(z - \alpha_k)} \]
+ 
+ we conclude then:
+ 
+ \begin{align}
+ P(z) &= Q(z) \cdot \sum_{k =1}^{n} \frac{c_k}{Q'(\alpha_k)(z-\alpha_k)} \\
+ &= \sum_{k=1}^{n} \frac{c_k}{Q'(\alpha_k)} \cdot \lrp{\frac{Q(z)}{z-\alpha_k}} \label{equation}
+ \end{align}
+ 
+ Now if we suppose that $ P(z) $ is given explicitly as \eqref{equation}. So that:
+ 
+ \[ P(\alpha_1) = \frac{c_1(\alpha_1 - \alpha_2) \ldots (\alpha_1 - \alpha_n)}{(\alpha_1 - \alpha_2) \ldots (\alpha_1 - \alpha_n)} = c_1 \]
+ 
+ Similarly, $ P(\alpha_k) = c_k $ for every $ k = 1, \ldots, n $. We conclude that $ P(z) $ is uniquely determined by \eqref{equation}, that is:
+ 
+ \[ P(z) = \sum_{k=1}^{n} c_k \prod_{j=1, j \neq k}^{n} \frac{z - \alpha_j}{\alpha_k - \alpha_j} \]
+ This is the famous Lagrange's interpolation polynomial.
+ 
+\end{enumerate}
+
+\end{document}
