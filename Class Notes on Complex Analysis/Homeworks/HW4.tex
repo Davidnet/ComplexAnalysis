@@ -1,0 +1,174 @@
+\documentclass[notitlepage]{article}
+%\usepackage{lmodern}
+%\usepackage[T1]{fontenc}
+%\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\author{David Cardozo}
+\title{Complex Analysis}
+
+\newtheorem{thm}{Theorem}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}{Proposition}[section]
+
+\theoremstyle{definition}
+\newtheorem*{define}{Definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{conj}{Conjecture}[section]
+\newtheorem{exm}{Example}[section]
+\theoremstyle{remark}
+\newtheorem*{rem}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem{case}{Case}
+\newtheorem{exc}{Exercise}
+\newtheorem*{sol}{Solution}
+
+
+
+
+
+
+
+
+
+%For Chapter 1
+\usepackage{mdframed} %frames around examples 
+
+%Customized Commands
+\newcommand{\lrp}[1]{\left( #1 \right)}
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\set}[1]{\left\lbrace #1 \right\rbrace}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\ZN}[1]{\frac{\mathbb{Z}}{#1 \mathbb{Z}}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\qt}[1]{\textrm{#1}}
+\newcommand{\function}[3]{#1 : #2 \rightarrow #3}
+\newcommand{\contained}{\subset}
+\newcommand{\restric}[2]{ #1\restriction_{#2}}
+\newcommand{\divs}{\mid}
+\newcommand{\ndivs}{\nmid}
+\newcommand{\gothic}[1]{\mathfrak{#1}}
+\newcommand{\inv}{^{-1}}
+
+\begin{document}
+\maketitle
+\begin{exc}
+	If $f(z)$ and $g(z)$ have the algebraic orders $h$ and $k$ at $z=a$, show that:
+	\begin{itemize}
+	\item $fg$ has the order $h+k$
+	\item $f/g$ the order $h-k$
+	\item  $f+g$ an order which does not exceed $\max\ (h,k)$.
+	\end{itemize}
+\end{exc}
+\begin{sol}
+	\begin{itemize}
+		
+		1. To say that $f(z)$ and $g(z)$ have algebraic orders $h$ and $k$ respectively at $z = a$ is to say that
+		
+		$$
+		\lim_{n \to \infty} |(z-a)|^{\alpha} |f(z)| = 0 \text{ for all } \alpha > r
+		$$
+		
+		and
+		
+		$$
+		\lim_{n \to \infty} |(z-a)|^{\beta} |g(z)| = 0 \text{ for all } \beta > k
+		$$
+		
+		where $h$ and $k$ are the minimal integers satisfying these properties.
+		
+		2. Then we have that
+		
+		\begin{align*}
+		& \lim_{n \to \infty} |(z-a)|^{\alpha+\beta} |f(z) \cdot g(z)| = 0 \\
+		\iff & \lim_{n \to \infty} |(z-a)|^{\alpha} |(z-a)|^{\beta} |f(z) \cdot g(z)| = 0\\
+		\iff & \alpha + \beta > h + k \\
+		\end{align*}
+		
+		as desired.
+		\item First, we observe that if $g(z) \ne 0$, then
+		
+		\begin{align*}
+		& \lim_{n \to \infty}  |(z-a)|^{\beta} \left|g(z)\right| = 0 \\
+		\iff & \lim_{n \to \infty} |(z-a)|^{-\beta} \left|{1 \over g(z)}\right| = 0 \\
+		\iff & - \beta > - k \\
+		\end{align*}
+		
+		2. Then if we continue to assume that $g(z) \ne 0$, we have that
+		
+		\begin{align*}
+		& \lim_{n \to \infty} |(z-a)|^{\alpha-\beta} \left|{f(z) \over g(z)}\right| = 0 \\
+		\iff & \lim_{n \to \infty} |(z-a)|^{\alpha} |(z-a)|^{-\beta} \left|{f(z) \over g(z)}\right| = 0\\
+		\iff & \alpha - \beta > h - k \\
+		\end{align*}
+		
+		as desired.
+		\item 
+		If $f(z) = z^n f'(z)$, and $g(z) = z^n g'(z)$, then $f(z)+g(z) = x^n (f'(z)+g'(z))$, which means that if both orders are at least $n$, then the sum is at least $n$.  In other words, the order of the sum must be at least the minimum of the two orders.
+		
+	\end{itemize}
+\end{sol}
+
+
+\begin{exc}
+	Show that a function which is analytic in the whole plane and has a nonessential singularity at $ \infty $ reduces to a polynomial.
+\end{exc}
+\begin{sol}
+	Let $ f $ be a function that is analytic in the whole plane and has a nonessential singularity at $ \infty $, define $ F(z) = f(\frac{1}{z}) $. Then $ F $ has a nonessential singularity at $ z = 0 $, therefore we have two cases:
+	
+	\begin{itemize}
+		\item \textit{Case I} The singularity is removable. If the singularity is removable then $ F $ is a bounded function in a neighborhood of of zero and $ f $ is bounded at infinity, and with the analyticity of $ f $ we have then, that it is a constant.
+		\item \textit{Case II} The singularity is a pole. Suppose that the singularity is a pole, then:
+		\[ F(z) = f(\frac{1}{z}) = \sum_{k = 1}^{n} c_k z^k + g(z) \]
+			and $ g $ is analytic at $ 0 $. Which then can use as:
+			\[ f(z) = g\lrp{\frac{1}{z}} = \sum_{k = 1 }^{n}c_k z^k + g(\frac{1}{z}) \]
+			we observe that $ g(\frac{1}{z}) $ is bounded in a neighborhood of zero since it is $ f $ and the rest of a polynomial, and $ g(\frac{1}{z}) $ then is analytic on the entire complex plane and has a finite limit $ g(0) $, which means that is just a constant.
+	\end{itemize}
+
+\end{sol}
+\begin{exc}
+	Show that the functions $ e^z, \sin(z), $ and $ \cos(z) $ have essential singularities at $ \infty $
+\end{exc}
+\begin{sol}
+	We observe that:
+	\[ \lim\limits_{z \rightarrow 0^+} \abs{e^{1/z}} = \infty \]
+	and 
+	\[ \lim\limits_{z \rightarrow 0^-} \abs{e^{1/z}} = 0 \]
+	so that 
+	\[ 0 \neq \lim\limits_{z \rightarrow 0} \abs{z}^{\alpha}\abs{e^{1/z}} \neq \infty \]
+	so we observe that $ e^z $ has an essential singularity at $ \infty $.
+	
+	We observe that $ \cos(z) $ has essential singularity at $ \infty $ iff $ \cos(\frac{1}{z}) $ has essential singularity $ 0 $. Now, we proceed by contradiction. Suppose that $\cos (1/z)$   has a pole or removable singularity at $0$. Then the same is true for its derivative $z^{-2}\sin (1/z)$.	Since 
+	$$e^{i/z}=\cos (1/z)+i\sin(1/z)$$
+	we have a contradiction: essential singularity on the left but not on the right.
+	
+	Argument is similar for $ \sin(z) $ 
+\end{sol}
+
+
+
+\begin{exc}
+	Show that any function which is meromorphic in the extended plane is rational
+\end{exc}
+\begin{sol}
+	Our main idea of thought will be to prove the following:
+	\begin{thm}
+		Suppose $ f: C_\infty \rightarrow C_\infty $ is a meromorphic function in the extended complex plane. Then $ f $ is a rational function.
+	\end{thm}
+	\begin{proof}
+		Let $ \set{z_n} \in \CC $ be the set of the poles of the function $ f $. The function $ F(z) = f(\frac{1}{z}) $ must be analytic in a deleted neighborhood of the origin, hence $ f $ is analytic in a deleted neighborhood of $ \infty $, the rest of the complex plane can contain only finitely many singularities, which implies $ \set{z_n} $ is finite. Now suppose that the orders of $ z_1, \ldots, z_n $ with multiplicities $ m_1, \ldots, m_k $ and let $ b_1, \ldots, b_l $ the poles of $ f $ with orders $ o_1, \ldots, o_l $. Now consider:
+		\[ g(z) = \frac{\prod_{j =1}^{k}(z- z_j)^{m_j}}{\prod_{d=1}^{l}(z - b_d)^{o_d} }\]
+		Observe $ g $ has exactly the same zeros and poles of $ f $ with the same multiplicities, so $ h: \CC_\infty \rightarrow \CC_\infty $ defined by:
+		\[ h(z) = \frac{f(z)}{g(z)} \]
+		is meromorphic function with no zeros or poles, then $ h $ extends to a nonzero bounded entire function, so by Liouville, $ h(z) = c $ for $ c \neq 0 $. Then 
+		\[ f(z) = c g(z) = c \frac{\prod_{j =1}^{k}(z- z_j)^{m_j}}{\prod_{d=1}^{l}(z - b_d)^{o_d} } \]
+		Then $ f $ is rational function
+	\end{proof}
+\end{sol}
+\end{document}

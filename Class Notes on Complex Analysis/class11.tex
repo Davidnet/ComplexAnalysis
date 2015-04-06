@@ -1,0 +1,48 @@
+\textbf{Taylor}
+
+\[ F(z) = \frac{f(z) - f(a)}{z-a} \quad \textrm{for } z \neq a \]
+\[ \lim_{z \rightarrow a}(z-a) F(z) = 0 \]
+\[ \implies \exists! f_1(z) \quad \textrm{on } \Omega \]
+\[ f_1(z) = F(z) \textrm{ for } a \neq z \]
+So that you get a sequence of equations:
+\begin{align*}
+f(z) = f(a) + (z-a)f_1(z) \\
+f_1(z) = f_1(a) + (z-a)f_2(z) \\
+\vdots \\
+f_{n-1} = f_{n-1}(a) + (z-a)f_n(z)
+\end{align*}
+and this produces 
+\[ f(z) = f(a) + f_1(a)(z-a) + \ldots f_{n-1}(a) (z-a)^{n-1}+ (z-a)^n f_n(z) \]
+And we observe that:
+\[ \dfrac{d^k}{dz^k} \vert_{z=a}(\ldots) = f^{k}(a) = k!f_k(a) \]
+so that we have contructed $ f $ as:
+\[ f(z) = f(a) + \dfrac{f'(a)}{1!}(z-a) + \ldots \dfrac{f^{n-1}(a)}{(n-1)!}(z-a)^{n-1} + (z-a)^nf_n(z) \]
+\textbf{Lema:} for $ \abs{z-a} < R $
+\[ f_n(z) = \dfrac{1}{2\pi i} \int_{C} \frac{f(\zeta)d\zeta}{(\zeta -a)^n(\zeta - z)} \]
+
+\textbf{Zeroes \& Poles}
+Suppose that happens the following:
+\[ f(a) = f'(a) = f^{n-1}(a) = 0 \]
+So it is interesting to see that if the following holds:
+\[ f(z) = (z-a)^n f_n(z) \]
+Recall that the strange function
+\[ f(x) = \begin{cases}
+e^{-\frac{1}{x^{2}}} \quad x \neq 0 \\
+0 \iff x = 0
+\end{cases} \]
+for $ \abs{z-a} < R $
+\[ M := \sup_{\abs{z-a} = R} \abs{f_n(z)} \]
+so that:
+\[ \abs{f_n(z) } \leq \frac{1}{2 \pi} \frac{M \cdot 2 \pi R}{R^n (R - \abs{z-a})} \]
+if we multiply both sides by $ (z-a)^n $ we see that:
+\[ \abs{f(z)} \leq \left( \frac{\abs{z-a}}{R} \right) ^n \frac{M \cdot R}{R - \abs{z-a}} \]
+if $ f^k (a) = 0 $ for all $ k $
+\[ \left| \dfrac{(z-a)}{R} \right) < 1 \implies \abs{f(z)} \leq \lim_{k \rightarrow \infty} (\ldots) = 0 \]
+now consider
+\[ f: \omega \underset{\textrm{Holomorphic}}{\rightarrow} \CC \]
+\[ f^k(a) = 0 \forall h = 0, \ldots \]
+\[ \implies f(z) = 0 \textrm{ on } \abs{z-a} < R \]
+\[ f(z) = 0 \implies f(z)^k (z) = 0 \forall k \]
+\[ \Omega = \set{a \in \Omega | \forall k = 0,1, \ldots f^{(k)} = 0 } \textrm{ Open } = E_1 \]
+\[ E_2 = \set{a \in \Omega | \exists k : f^{(k)}(a) \neq 0} \]
+\[ \Omega- \textrm{Connected Open} \]
